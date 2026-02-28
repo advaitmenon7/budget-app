@@ -1,0 +1,118 @@
+.container {
+    /* Enables Flexbox layout for the container's children */
+    display: flex;
+    /* Optional: Controls how the items align along the main axis */
+    justify-content: space-around; 
+}
+.vontainer {
+    /* Enables Flexbox layout for the container's children */
+    display: flex;
+    flex-direction: column; /* Stacks the children vertically */
+    /* Optional: Controls how the items align along the main axis */
+    justify-content: space-around; 
+}
+.rectangle {
+  width: 250px; /* Set a specific width */
+  height: 75px; /* Set a specific height */
+  background-color: #007bff; /* Example background color */
+  color: white; /* Text color for visibility */
+  border-radius: 15px; /* Adds rounded corners */
+  display: flex; /* Centers text inside */
+  align-items: center; /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally */
+  padding: 10px; /* Adds some space inside the rectangle */
+}
+.box {
+ width: 1350px; /* Sets the width of the content area */
+ height: 50px; /* Sets the height of the content area */
+ background-color: rgb(0, 7, 87); /* Adds a background color */
+}
+.bigbox {
+ width: 1350px; /* Sets the width of the content area */
+ height: 600px; /* Sets the height of the content area */
+ background-color: rgba(65, 74, 255, 0.381); /* Adds a background color */
+}
+.bbox {
+ width: 910px; /* Sets the width of the content area */
+ height: 500px; /* Sets the height of the content area */
+ background-color: rgb(255, 255, 255); /* Adds a background color */
+}
+.centered-text {
+  text-align: center;      /* Ensures multiple lines of text are centered */
+}
+.nbox {
+ width: 350px; /* Sets the width of the content area */
+ height: 390px; /* Sets the height of the content area */
+ background-color: rgb(0, 0, 0); /* Adds a background color */
+}
+.redtangle {
+  width: 250px; /* Set a specific width */
+  height: 75px; /* Set a specific height */
+  background-color: #73e2f3; /* Example background color */
+  color: rgb(0, 0, 0); /* Text color for visibility */
+  border-radius: 15px; /* Adds rounded corners */
+  display: flex; /* Centers text inside */
+  align-items: center; /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally */
+  justify-content: space-around; 
+  padding: 10px; /* Adds some space inside the rectangle */
+}
+
+.menu {
+  /* Optional: gives the divs a visible height, border, and margin */
+  height: 100px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: rgb(0,7,87); /* Example background color */
+  margin-bottom: 10px; /* Space between the divs */
+  text-align: center;
+  padding-top: 20px;
+}
+
+.wox {
+   display: flex;
+  justify-content: center; /* Horizontal */
+  height: 100vh;           /* Full viewport height */
+}
+
+.wigbox {
+
+
+ width: 700px; /* Sets the width of the content area */
+ height: 300px; /* Sets the height of the content area */
+ border-radius: 15px; /* Adds rounded corners */
+ background-color: rgb(255, 255, 255); /* Adds a background color */
+}
+
+.gox {
+
+
+ width: 350px; /* Sets the width of the content area */
+ height: 300px; /* Sets the height of the content area */
+ border-radius: 15px; /* Adds rounded corners */
+ background-color: rgba(255, 255, 255, 0); /* Adds a background color */
+}
+
+.wontainer {
+    /* Enables Flexbox layout for the container's children */
+    display: flex;
+    flex-direction: row; /* Stacks the children vertically */
+    /* Optional: Controls how the items align along the main axis */
+    justify-content: space-around; 
+}
+.bluetangle {
+  width: 200px; /* Set a specific width */
+  height: 50px; /* Set a specific height */
+  background-color: rgb(3, 9, 113); /* Example background color */
+  border-radius: 15px; /* Adds rounded corners */
+  display: flex; /* Centers text inside */
+  align-items: center; /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally */
+  justify-content: space-around; 
+  padding: 10px; /* Adds some space inside the rectangle */
+}
+ .large-input {
+      height: 6px;
+      width: 72px;
+      font-size: 16px;
+      padding: 5px; /* Adds space around the text */
+ }

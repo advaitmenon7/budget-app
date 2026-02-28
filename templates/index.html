@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-18" />
+    <title>Budget App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/budget.css') }}">
+</head>
+<body style="background-color:lightgrey;">
+    
+    <div class="bigbox">
+        <div class="box">
+            <div class="centered-text">
+                <p style="color:rgb(255, 255, 255); font-size: 39px;">Welcome to the budget app!
+                    
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="nbox">
+                <div class="vontainer">
+                    <div class="menu">
+                         <form action="{{ url_for('show_budget') }}" method="POST">
+                            <button type="submit">Budget</button>
+                           </form>
+                    </div>
+                    <div class="menu">
+                         <form action="{{ url_for('show_budget') }}" method="POST">
+                            <button type="submit">Goals</button>
+                           </form>
+                    </div>
+                    <div class="menu">
+                         <form action="{{ url_for('show_budget') }}" method="POST">
+                            <button type="submit">Insights</button>
+                           </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bbox">
+                <div class="container">
+                    <br>
+                    <div class="redtangle"> income: {{income}}</div>
+                    <br>
+                    <div class="redtangle"> expenses: {{expenses}}</div>
+                    <br>
+                    <div class="redtangle"> savings: {{savings}}</div>
+                    <br>
+                </div>
+            </div>
+
+                
+
+        </div>
+    </div>
+    
+    
+
+    
+</body>
+</html>
