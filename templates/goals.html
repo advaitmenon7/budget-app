@@ -8,12 +8,31 @@
 <body style="background-color:lightgrey;">
     <div class="box">
         <div class="centered-text">
-            <p style="color:rgb(255, 255, 255); font-size: 39px;">Savings Calculator
+            <p style="color:rgb(255, 255, 255); font-size: 39px;">Savings Calculator (Compound Interest)
                  
             </p>
-        <form action="{{ url_for('handle_gata') }}" method="POST">
+<!-- NAVIGATION (separate, NOT inside form) -->
+<div class="button-container">
 
-            
+<form action="{{ url_for('show_budget') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Budget</button>
+                           </form>
+<form action="{{ url_for('show_simple') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Simple)</button>
+                           </form>           
+<form action="{{ url_for('show_mortgage') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Mortgage Calculator</button>
+                           </form>
+<form action="{{ url_for('show_goals') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Compound)</button>
+                           </form>
+</div>
+
+<br>
+
+<!-- ✅ MAIN FORM (ONLY ONE) -->
+<form action="{{ url_for('handle_gata') }}" method="POST">                   <br>
+
 <div class="wox">
 <div class="wigbox">
 <br>
@@ -50,10 +69,12 @@
 
 </div>
 </div>
+
 <div class="wox">
     <div class="bluetangle">
+            <form>
                 <button style="background-color: rgb(3, 19, 113); border-color: rgb(3, 19, 113); color: rgb(255, 255, 255); width: 200px; height: 60px; font-size: 20px;"type="submit">Submit</button>
-</div>
+    </form></div>
 
         </div>
         </div>

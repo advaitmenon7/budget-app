@@ -8,12 +8,31 @@
 <body style="background-color:lightgrey;">
     <div class="box">
         <div class="centered-text">
-            <p style="color:rgb(255, 255, 255); font-size: 39px;">Budget
-                 
-            </p>
-        <form action="{{ url_for('handle_data') }}" method="POST">
+         <p style="color:white; font-size:39px;">Budget</p>
+
+<!-- NAVIGATION (separate, NOT inside form) -->
+<div class="button-container">
+
+<form action="{{ url_for('show_budget') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Budget</button>
+                           </form>
+<form action="{{ url_for('show_simple') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Simple)</button>
+                           </form>           
+<form action="{{ url_for('show_mortgage') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Mortgage Calculator</button>
+                           </form>
+<form action="{{ url_for('show_goals') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Compound)</button>
+                           </form>
+</div>
+
+<br>
+
+<!-- ✅ MAIN FORM (ONLY ONE) -->
+<form action="{{ url_for('handle_data') }}" method="POST">                   <br>
 <div class="wox">
-<div class="wigbox">
+<div class="wiggerbox">
 <br>
     <div class="wontainer">
 
@@ -37,10 +56,14 @@
             <label>Transport:</label>
             <br>
             <br>
-            <label>Fun:</label>
+            <label>Entertainment/Other:</label>
             <br>
             <br>
-            <label>Charity:</label>
+            <label>Taxes:</label>
+            <br>
+            <br>
+            <label>Savings:</label>
+
 
            </div>
         <div class="gox">
@@ -77,18 +100,39 @@
             <br>
             <br>
 
-            <input type="number" id="charity" name="charity" min="000" max="5000" class="large-input">
+            <input type="number" id="taxes" name="taxes" min="000" max="5000" class="large-input">
             <label>CAD</label>
             <br>
             <br>
+            <input type="number" id="savings" name="savings" min="000" max="5000" class="large-input">
+            <label>CAD</label>
+
 
 </div>
     </div>
 <div class="wox">
     <div class="bluetangle">
-                <button type="submit">Submit</button>
+                <button style="background-color: rgb(3, 19, 113); border-color: rgb(3, 19, 113); color: rgb(255, 255, 255); width: 200px; height: 60px; font-size: 20px;"type="submit">Submit</button>
 </div>
 </div>
+</div>
+<div class = "blank"></div>
+
+                    <br>
+                       <br>
+<div class="bboxp3">
+                <p style="color:rgb(0, 0, 0);">Manage income, expenses, and savings.</p>
+                    <div class="bluetangle"> 
+            <p style="color:rgb(255, 255, 255);">Income: <br> {{income}} CAD</p></div>
+            <br>
+         <div class="bluetangle"> 
+            <p style="color:rgb(255, 255, 255);">Expenses: <br> {{expenses}} CAD</p></div>
+            <br>
+         <div class="bluetangle"> 
+            <p style="color:rgb(255, 255, 255);">Total Savings: <br> {{savings}} CAD</p></div>
+        
+        </div>
+
 </div>
 
 </div>

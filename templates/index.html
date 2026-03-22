@@ -2,78 +2,143 @@
 <html>
 <head>
     <meta charset="utf-18" />
-    <title>Budget App</title>
+    <title>Budget</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/budget.css') }}">
 </head>
 <body style="background-color:lightgrey;">
-    
-    <div class="bigbox">
-        <div class="box">
-            <div class="centered-text">
-                <p style="color:rgb(255, 255, 255); font-size: 39px;">Welcome to the budget app!
-                    
-                </p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="nbox">
-                <div class="vontainer">
-                    <div class="menu">
-                         <form action="{{ url_for('show_budget') }}" method="POST">
-                            <button type="submit">Budget</button>
-                           </form>
-                    </div>
-                    <div class="menu">
-                         <form action="{{ url_for('show_goals') }}" method="POST">
-                            <button type="submit">Savings Calculator</button>
-                           </form>
-                    </div>
-                    <div class="menu">
-                         <form action="{{ url_for('show_mortage') }}" method="POST">
-                            <button type="submit">Mortgage</button>
-                           </form>
-                                               </div>
+    <div class="box">
+        <div class="centered-text">
+         <p style="color:white; font-size:39px;">Budget</p>
 
-                    <div class="menu">
-                         <form action="{{ url_for('show_simple') }}" method="POST">
-                            <button type="submit">Simple</button>
-                           </form>
-                    </div>
-                </div>
-            </div>
-        <div class="vontainer">
-            <div class="bboxp1">
-                <div class="container">
-                    <br>
-                    <div class="redtangle"> Income: {{income}} CAD</div>
-                    <br>
-                    <div class="redtangle"> Expenses: {{expenses}} CAD</div>
-                    <br>
-                    <div class="redtangle"> Savings: {{savings}} CAD</div>
-                    <br>
-            </div>
-             <div class="bboxp1">
+<!-- NAVIGATION (separate, NOT inside form) -->
+<div class="button-container">
+    <form action="{{ url_for('show_budget') }}" method="POST">
+        <button type="submit">Budget</button>
+    </form>
 
-                    <br>
-                    <div class="redtangle"> {{payment}} CAD in {{time}} months</div></div>
+    <form action="{{ url_for('show_simple') }}" method="POST">
+        <button type="submit">Savings Calculator (Simple)</button>
+    </form>
 
-             <div class="bboxp1">
+    <form action="{{ url_for('show_mortgage') }}" method="POST">
+        <button type="submit">Mortgage Calculator</button>
+    </form>
 
-                    <br>
-                    <div class="redtangle"> Pay: {{pamount}} CAD per month to finish mortgage in {{years}} years</div>
-            </div>
-             <div class="bboxp1">
+    <form action="{{ url_for('show_goals') }}" method="POST">
+        <button type="submit">Savings Calculator (Compound)</button>
+    </form>
+</div>
 
-                    <br>
-                    <div class="redtangle"> You will have: {{samount}} CAD in {{sears}} years</div>
-            </div>
-        </div>
-                </div>
+<br>
 
+<!-- ✅ MAIN FORM (ONLY ONE) -->
+<form action="{{ url_for('handle_data') }}" method="POST">                   <br>
+<div class="wox">
+<div class="wiggerbox">
+<br>
+    <div class="wontainer">
+
+        <div class="gox">
+            <label>Gross Monthly income:</label>
+            <br>
+            <br>
+
+            <label>Expenses:</label>
+            <br>
+            <br>
+            <label>Bills:</label>
+            <br>
+            <br>
+            <label>Rent:</label>
+            <br>
+            <br>
+            <label>Food:</label>
+            <br>
+            <br>
+            <label>Transport:</label>
+            <br>
+            <br>
+            <label>Entertainment/Other:</label>
+            <br>
+            <br>
+            <label>Taxes:</label>
+            <br>
+            <br>
+            <label>Savings:</label>
+
+
+           </div>
+        <div class="gox">
+             <input type="number" id="income" name="income" min="1000" max="5000" class="large-input">
+             <label>CAD</label>
+
+<br>
+<br>
+<br>
+  
+            <input type="number" id="bills" name="bills" min="000" max="5000" class="large-input">
+             <label>CAD</label>
+
+            <br>
+            <br>
+
+            <input type="number" id="rent" name="rent" min="000" max="5000" class="large-input">
+            <label>CAD</label>
+            <br>
+            <br>
+
+            <input type="number" id="food" name="food" min="000" max="5000" class="large-input">
+            <label>CAD</label>
+            <br>
+            <br>
+
+            <input type="number" id="transport" name="transport" min="000" max="5000" class="large-input">
+            <label>CAD</label>
+            <br>
+            <br>
+
+            <input type="number" id="fun" name="fun" min="000" max="5000" class="large-input"> 
+            <label>CAD</label>
+            <br>
+            <br>
+
+            <input type="number" id="taxes" name="taxes" min="000" max="5000" class="large-input">
+            <label>CAD</label>
+            <br>
+            <br>
+            <input type="number" id="savings" name="savings" min="000" max="5000" class="large-input">
+            <label>CAD</label>
+
+
+</div>
     </div>
-    
-    
+<div class="wox">
+    <div class="bluetangle">
+                <button style="background-color: rgb(3, 19, 113); border-color: rgb(3, 19, 113); color: rgb(255, 255, 255); width: 200px; height: 60px; font-size: 20px;"type="submit">Submit</button>
+</div>
+</div>
+</div>
+<div class = "blank"></div>
 
-    
+                    <br>
+                       <br>
+<div class="bboxp3">
+                <p style="color:rgb(0, 0, 0);">Manage income, expenses, and savings.</p>
+                    <div class="bluetangle"> 
+            <p style="color:rgb(255, 255, 255);">Income: <br> {{income}} CAD</p></div>
+            <br>
+         <div class="bluetangle"> 
+            <p style="color:rgb(255, 255, 255);">Expenses: <br> {{expenses}} CAD</p></div>
+            <br>
+         <div class="bluetangle"> 
+            <p style="color:rgb(255, 255, 255);">Total Savings: <br> {{savings}} CAD</p></div>
+        
+        </div>
+
+</div>
+
+</div>
+
+</div>
 </body>
-</html>
+</html> 

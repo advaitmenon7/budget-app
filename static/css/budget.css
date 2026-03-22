@@ -25,7 +25,7 @@
 .box {
  width: 1350px; /* Sets the width of the content area */
  height: 50px; /* Sets the height of the content area */
- background-color: rgb(0, 7, 87); /* Adds a background color */
+ background-color: rgb(3, 9, 113); /* Adds a background color */
 }
 .bigbox {
  width: 1000px; /* Sets the width of the content area */
@@ -133,6 +133,30 @@ justify-content: space-around;
   text-align: left; /* Aligns text to the left */
 }
 .blank {
-  background-color: rgb(211, 211, 211); /* Adds a background color */
+  background-color: lightgrey; /* Adds a background color */
    width: 50px; /* Sets the width of the content area */
+}
+.wiggerbox {
+
+
+ width: 700px; /* Sets the width of the content area */
+ height: 330px; /* Sets the height of the content area */
+ border-radius: 15px; /* Adds rounded corners */
+ background-color: rgb(255, 255, 255); /* Adds a background color */
+}
+
+.bboxp3 {
+justify-content: space-around;
+ width: 350px; /* Sets the width of the content area */
+ height: 300px; /* Sets the height of the content area */
+ border-radius: 15px; /* Adds rounded corners */
+ padding: 15px; /* Adds space around the text */
+ background-color: rgb(255, 255, 255); /* Adds a background color */
+  text-align: left; /* Aligns text to the left */
+}
+.button-container {
+    display: flex; /* Aligns children horizontally */
+    gap: 10px; /* Adds space between the buttons */
+    /* Optional: to center the buttons within their parent container */
+    justify-content: center;
 }

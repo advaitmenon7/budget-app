@@ -8,11 +8,30 @@
 <body style="background-color:lightgrey;">
     <div class="box">
         <div class="centered-text">
-            <p style="color:rgb(255, 255, 255); font-size: 39px;">Mortgage!!
+            <p style="color:rgb(255, 255, 255); font-size: 39px;">Mortgage
                  
             </p>
-        <form action="{{ url_for('handle_mata') }}" method="POST">
-        <div>
+<!-- NAVIGATION (separate, NOT inside form) -->
+<div class="button-container">
+
+<form action="{{ url_for('show_budget') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Budget</button>
+                           </form>
+<form action="{{ url_for('show_simple') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Simple)</button>
+                           </form>           
+<form action="{{ url_for('show_mortgage') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Mortgage Calculator</button>
+                           </form>
+<form action="{{ url_for('show_goals') }}" method="POST">
+                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Compound)</button>
+                           </form>
+</div>
+
+<br>
+
+<!-- ✅ MAIN FORM (ONLY ONE) -->
+<form action="{{ url_for('handle_mata') }}" method="POST">                   <br>
 <div class="wox">
 <div class="wigbox">
 <br>
@@ -57,9 +76,21 @@
     </div>
 <div class="wox">
     <div class="bluetangle">
-                <button type="submit">Submit</button>
+                <button style="background-color: rgb(3, 19, 113); border-color: rgb(3, 19, 113); color: rgb(255, 255, 255); width: 200px; height: 60px; font-size: 20px;"type="submit">Submit</button>
 </div>
+        </div>
 </div>
+
+
+<div class = "blank"></div>
+
+                    <br>
+                       <br>
+<div class="bboxp3">
+                <p style="color:rgb(0, 0, 0);">Estimate how how much each payment for your mortgage is.</p>
+                    <div class="bluetangle"> 
+            <p style="color:rgb(255, 255, 255);">For {{years}} years, you will pay: <br> {{pamount}} CAD each month.</p></div></div>
+
 </div>
 
 
