@@ -102,16 +102,16 @@ def handle_sata():
 @app.route('/')
 def index():
     # Define your Python variable
-    income = 2000
-    bills = 123
-    food = 234
-    rent = 1000 
-    initial = 500
-    soal = 12
-    time = 1
-    drate = 1
-    interest = 1 
-    expenses = 2
+    income = 0
+    bills = 0
+    food = 0
+    rent = 0 
+    initial = 0
+    soal = 0
+    time = 0
+    drate = 0
+    interest = 0
+    expenses = 0
     savings = (int(income)-int(expenses))
     den = int(interest)**int(time)*int(drate)
     payment = int(soal)
