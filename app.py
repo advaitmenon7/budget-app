@@ -77,8 +77,8 @@ def handle_mata():
     r = float(irate)/1200
     r = round(r, 4)
     n = float(years)*12
-    a = (1+float(r))**float(n)
-    pamount = float(p)*((float(r)*float(a))/(float(a)-0.99))
+    a = ((1+float(irate)/1200)**float(n))
+    pamount = float(p)*(float(irate)/1200*((1+float(irate)/1200)**float(n)))/(((1+float(irate)/1200)**float(n))-1)
     pamount = round(float(pamount), 2)
     return render_template('Mortgage.html', pamount=pamount, years=years)
 
