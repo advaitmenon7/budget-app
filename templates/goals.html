@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-18" />
+    <title>Savings Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/budget.css') }}">
+</head>
+<body style="background-color:lightgrey;">
+    <div class="box">
+        <div class="centered-text">
+            <p style="color:rgb(255, 255, 255); font-size: 39px;">Savings Calculator
+                 
+            </p>
+        <form action="{{ url_for('handle_gata') }}" method="POST">
+
+            
+<div class="wox">
+<div class="wigbox">
+<br>
+    <div class="wontainer">
+
+        <div class="gox">
+            <label>Initial Deposit:</label>
+            <br>
+            <br>
+            <label>Interest Freqeuncy (12 for monthly, 4 for quarterly)</label>
+            <br>
+            <br>
+            <label>Interest Rate (Compound):</label>
+            <br>
+            <br>
+            <label>Time for Saving:</label>
+           </div>
+        <div class="gox">
+            <input type="number" id="initial" name="initial" min="500" max="5000" class="large-input">
+            <label>CAD</label>
+            <br>
+            <br>
+            <input type="number" id="drate" name="drate" min="000" max="5000" class="large-input">
+            <br>
+            <br>
+            <input type="number" id="interest" name="interest" min="000" max="5000" class="large-input">
+            <label>%</label>
+            <br>
+            <br>
+            <input type="number" id="time" name="time" min="000" max="5000" class="large-input">
+             <label>months</label>
+
+
+
+</div>
+</div>
+<div class="wox">
+    <div class="bluetangle">
+                <button style="background-color: rgb(3, 19, 113); border-color: rgb(3, 19, 113); color: rgb(255, 255, 255); width: 200px; height: 60px; font-size: 20px;"type="submit">Submit</button>
+</div>
+
+        </div>
+        </div>
+
+
+<div class = "blank"></div>
+
+                    <br>
+                       <br>
+<div class="bboxp2">
+                <p style="color:rgb(0, 0, 0);">Estimate how compound interest grow your savings.</p>
+                    <div class="bluetangle"> 
+            <p style="color:rgb(255, 255, 255);">Projected Savings in {{time}} months: <br> {{payment}} CAD</p></div></div>
+
+</div>
+
+</div>
+
+</div>
+</body>
+</html> 

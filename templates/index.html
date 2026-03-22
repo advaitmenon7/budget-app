@@ -24,33 +24,52 @@
                            </form>
                     </div>
                     <div class="menu">
-                         <form action="{{ url_for('show_budget') }}" method="POST">
-                            <button type="submit">Goals</button>
+                         <form action="{{ url_for('show_goals') }}" method="POST">
+                            <button type="submit">Savings Calculator</button>
                            </form>
                     </div>
                     <div class="menu">
-                         <form action="{{ url_for('show_budget') }}" method="POST">
-                            <button type="submit">Insights</button>
+                         <form action="{{ url_for('show_mortage') }}" method="POST">
+                            <button type="submit">Mortgage</button>
+                           </form>
+                                               </div>
+
+                    <div class="menu">
+                         <form action="{{ url_for('show_simple') }}" method="POST">
+                            <button type="submit">Simple</button>
                            </form>
                     </div>
                 </div>
             </div>
-            
-            <div class="bbox">
+        <div class="vontainer">
+            <div class="bboxp1">
                 <div class="container">
                     <br>
-                    <div class="redtangle"> income: {{income}}</div>
+                    <div class="redtangle"> Income: {{income}} CAD</div>
                     <br>
-                    <div class="redtangle"> expenses: {{expenses}}</div>
+                    <div class="redtangle"> Expenses: {{expenses}} CAD</div>
                     <br>
-                    <div class="redtangle"> savings: {{savings}}</div>
+                    <div class="redtangle"> Savings: {{savings}} CAD</div>
                     <br>
-                </div>
             </div>
+             <div class="bboxp1">
 
-                
+                    <br>
+                    <div class="redtangle"> {{payment}} CAD in {{time}} months</div></div>
 
+             <div class="bboxp1">
+
+                    <br>
+                    <div class="redtangle"> Pay: {{pamount}} CAD per month to finish mortgage in {{years}} years</div>
+            </div>
+             <div class="bboxp1">
+
+                    <br>
+                    <div class="redtangle"> You will have: {{samount}} CAD in {{sears}} years</div>
+            </div>
         </div>
+                </div>
+
     </div>
     
     

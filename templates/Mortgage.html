@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-18" />
+    <title>Mortgage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/budget.css') }}">
+</head>
+<body style="background-color:lightgrey;">
+    <div class="box">
+        <div class="centered-text">
+            <p style="color:rgb(255, 255, 255); font-size: 39px;">Mortgage!!
+                 
+            </p>
+        <form action="{{ url_for('handle_mata') }}" method="POST">
+        <div>
+<div class="wox">
+<div class="wigbox">
+<br>
+    <div class="wontainer">
+
+        <div class="gox">
+            <label>House Price:</label>
+            <br>
+            <br>
+            <label>Initial Deposit:</label>
+            <br>
+            <br>
+            <label>Time (years):</label>
+            <br>
+            <br>
+            <label>Annual Interest Rate (Compound):</label>
+            <br>
+            <br>
+
+           </div>
+        <div class="gox">
+             <input type="number" id="hprice" name="hprice" min="1000"  class="large-input">
+             <label>CAD</label>
+            <br>
+            <br>
+            <input type="number" id="dpayment" name="dpayment" min="000" max="5000" class="large-input">
+             <label>CAD</label>
+            <br>
+
+            <br>
+            <input type="number" id="years" name="years" min="000" max="5000" class="large-input">
+            <br>
+            <br>
+            <input type="number" id="rate" name="rate" min="000" max="5000" class="large-input">
+             <label>%</label>
+            <br>
+
+            <br>
+
+
+</div>
+    </div>
+<div class="wox">
+    <div class="bluetangle">
+                <button type="submit">Submit</button>
+</div>
+</div>
+</div>
+
+
+</div>
+
+</div>
+</body>
+</html> 

@@ -28,7 +28,7 @@
  background-color: rgb(0, 7, 87); /* Adds a background color */
 }
 .bigbox {
- width: 1350px; /* Sets the width of the content area */
+ width: 1000px; /* Sets the width of the content area */
  height: 600px; /* Sets the height of the content area */
  background-color: rgba(65, 74, 255, 0.381); /* Adds a background color */
 }
@@ -41,8 +41,8 @@
   text-align: center;      /* Ensures multiple lines of text are centered */
 }
 .nbox {
- width: 350px; /* Sets the width of the content area */
- height: 390px; /* Sets the height of the content area */
+ width: 250px; /* Sets the width of the content area */
+ height: 330px; /* Sets the height of the content area */
  background-color: rgb(0, 0, 0); /* Adds a background color */
 }
 .redtangle {
@@ -60,7 +60,8 @@
 
 .menu {
   /* Optional: gives the divs a visible height, border, and margin */
-  height: 100px;
+  width: 250px;
+  height: 60px;
   border: 1px solid rgb(255, 255, 255);
   background-color: rgb(0,7,87); /* Example background color */
   margin-bottom: 10px; /* Space between the divs */
@@ -85,7 +86,8 @@
 
 .gox {
 
-
+  text-align: left; /* Aligns text to the left */
+padding: 15px;
  width: 350px; /* Sets the width of the content area */
  height: 300px; /* Sets the height of the content area */
  border-radius: 15px; /* Adds rounded corners */
@@ -116,3 +118,21 @@
       font-size: 16px;
       padding: 5px; /* Adds space around the text */
  }
+ .bboxp1 {
+ width: 910px; /* Sets the width of the content area */
+ height: 150px; /* Sets the height of the content area */
+ background-color: rgb(255, 255, 255); /* Adds a background color */
+}
+.bboxp2 {
+justify-content: space-around;
+ width: 350px; /* Sets the width of the content area */
+ height: 270px; /* Sets the height of the content area */
+ border-radius: 15px; /* Adds rounded corners */
+ padding: 15px; /* Adds space around the text */
+ background-color: rgb(255, 255, 255); /* Adds a background color */
+  text-align: left; /* Aligns text to the left */
+}
+.blank {
+  background-color: rgb(211, 211, 211); /* Adds a background color */
+   width: 50px; /* Sets the width of the content area */
+}
