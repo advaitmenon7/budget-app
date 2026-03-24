@@ -15,14 +15,17 @@
 <div class="button-container">
 
 <form action="{{ url_for('show_budget') }}" method="POST">
-                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Budget</button>
-                           </form>
-<form action="{{ url_for('show_mortgage') }}" method="POST">
-                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Mortgage Calculator</button>
-                           </form>
-<form action="{{ url_for('show_goals') }}" method="POST">
-                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Compound)</button>
-                           </form>
+        <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Budget</button>
+    </form>
+<form action="{{ url_for('show_simple') }}" method="POST">
+        <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">▶ Savings Calculator (Simple)</button>
+    </form>
+    <form action="{{ url_for('show_goals') }}" method="POST">
+        <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Compound)</button>
+    </form>
+    <form action="{{ url_for('show_mortgage') }}" method="POST">
+        <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Mortgage Calculator</button>
+    </form>
 </div>
 
 <br>
@@ -40,7 +43,7 @@
             <label>Initial Deposit:</label>
             <br>
             <br>
-            <label>Time (years):</label>
+            <label>Time:</label>
             <br>
             <br>
             <label>Interest Rate (simple):</label>
@@ -49,15 +52,15 @@
 
            </div>
         <div class="gox">
-            <input type="number" id="ideposit" name="ideposit" min="000" class="large-input">
+            <input type="number" id="ideposit" name="ideposit" min="000" class="large-input" value="{{ ideposit }}"> 
              <label>CAD</label>
             <br>
 
             <br>
-            <input type="number" id="sears" name="sears" min="000" class="large-input">
+            <input type="number" id="sears" name="sears" min="000" class="large-input"value="{{ sears }}"> years
             <br>
             <br>
-            <input type="number" id="sate" name="sate" min="000" class="large-input">
+            <input type="number" id="sate" name="sate" min="000" class="large-input" value="{{ sate }}">
              <label>%</label>
             <br>
 

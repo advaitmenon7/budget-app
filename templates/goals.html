@@ -14,15 +14,20 @@
 <!-- NAVIGATION (separate, NOT inside form) -->
 <div class="button-container">
 
-<form action="{{ url_for('show_budget') }}" method="POST">
-                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Budget</button>
-                           </form>
+    <form action="{{ url_for('show_budget') }}" method="POST">
+        <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Budget</button>
+    </form>
 <form action="{{ url_for('show_simple') }}" method="POST">
-                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Simple)</button>
-                           </form>           
-<form action="{{ url_for('show_mortgage') }}" method="POST">
-                            <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Mortgage Calculator</button>
-                           </form>
+        <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Simple)</button>
+    </form>
+    <form action="{{ url_for('show_goals') }}" method="POST">
+        <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">▶ Savings Calculator (Compound)</button>
+    </form>
+    <form action="{{ url_for('show_mortgage') }}" method="POST">
+        <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Mortgage Calculator</button>
+    </form>
+
+
 </div>
 
 <br>
@@ -39,7 +44,7 @@
             <label>Initial Deposit:</label>
             <br>
             <br>
-            <label>Interest Freqeuncy (12 for monthly, 4 for quarterly)</label>
+            <label>Interest Application Freqeuncy</label>
             <br>
             <br>
             <label>Interest Rate (Compound):</label>
@@ -48,19 +53,23 @@
             <label>Time for Saving:</label>
            </div>
         <div class="gox">
-            <input type="number" id="initial" name="initial" min="500" class="large-input">
+            <input type="number" id="initial" name="initial" min="000" class="large-input" value="{{ initial }}">
             <label>CAD</label>
             <br>
             <br>
-            <input type="number" id="drate" name="drate" min="000" max="24" class="large-input">
+            <input type="radio" name="drate" value="12"
+    {% if drate == 12 %}checked{% endif %}> Monthly
+
+<input type="radio" name="drate" value="4"
+    {% if drate == 4 %}checked{% endif %}> Quarterly
+    <br>
             <br>
-            <br>
-            <input type="number" id="interest" name="interest" min="000" max="100" class="large-input">
+            <input type="number" id="interest" name="interest" min="000" max="100" class="large-input" value="{{ interest }}">
             <label>%</label>
             <br>
             <br>
-            <input type="number" id="time" name="time" min="000" class="large-input">
-             <label>months</label>
+            <input type="number" id="time" name="time" min="000" class="large-input" value="{{ time }}">
+             <label>years</label>
 
 
 
@@ -69,9 +78,9 @@
 
 <div class="wox">
     <div class="bluetangle">
-            <form>
+            
                 <button style="background-color: rgb(3, 19, 113); border-color: rgb(3, 19, 113); color: rgb(255, 255, 255); width: 200px; height: 60px; font-size: 20px;"type="submit">Submit</button>
-    </form></div>
+    </div>
 
         </div>
         </div>
@@ -82,9 +91,9 @@
                     <br>
                        <br>
 <div class="bboxp2">
-                <p style="color:rgb(0, 0, 0);">Estimate how compound interest grow your savings.</p>
+                <p style="color:rgb(0, 0, 0);">Estimate how compound interest grows your savings.</p>
                     <div class="bluetangle"> 
-            <p style="color:rgb(255, 255, 255);">Projected Savings in {{time}} months: <br> {{payment}} CAD</p></div></div>
+            <p style="color:rgb(255, 255, 255);">Projected Savings in {{time}} years: <br> {{payment}} CAD</p></div></div>
 
 </div>
 

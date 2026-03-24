@@ -2,6 +2,10 @@ from flask import *
 
 app = Flask(__name__)
 methods=['GET', 'POST']
+
+
+
+
 #@app.route("/")
 #def home():
 #    return render_template("index.html")
@@ -38,50 +42,61 @@ def handle_data():
     fun = int(request.form.get('fun', 0) or 0)
     taxes = int(request.form.get('taxes', 0) or 0)
     income = int(request.form.get('income', 0) or 0)
+    savings = int(request.form.get('savings', 0) or 0)
+    expenses = int(bills)+int(food) + int(rent) + int(transport) + int(fun) + int(taxes) + int(savings)
+    tsavings = int(income)-int(expenses)+int(savings)
+    return render_template('dashboard.html', income=income, expenses=expenses, tsavings=tsavings,
+        bills = bills, food = food, rent = rent, transport = transport, fun = fun, taxes = taxes, savings = savings)
 
-    expenses = int(bills)+int(food) + int(rent) + int(transport) + int(fun) + int(taxes) 
-    savings = int(income)-int(expenses)
-    return render_template('dashboard.html', income=income, expenses=expenses, savings=savings)
-
-@app.route('/handle_gata', methods=['POST']
-)
+@app.route('/handle_gata', methods=['POST'])
 def handle_gata():
+    try:
+        time = int(request.form.get('time', 0)) / 12
+        drate = int(request.form.get('drate', 12))  # 12 or 4
+        interest = float(request.form.get('interest', 0)) / 100
+        initial = float(request.form.get('initial', 0))
 
-    time = request.form.get('time', 0) or 0
-    drate = request.form.get('drate', 0) or 0
-    interest = request.form.get('interest', 0) or 0
-    initial = request.form.get('initial', 0) or 0
-    time = int(time) if time is not None else 0
-    interest = int(interest) if interest is not None else 0
-    interest = int(interest)/100 
-    initial = float(initial) if initial is not None else 0
-    drate=float(drate) if drate is not None else 0
-    payment = float(initial)*(1+float(interest)/float(drate))**(float(time)/12*float(drate))
-    payment = (round(float(payment), 2))
-    return render_template('goals.html', payment=payment,time = time)
-    #payment = payment 
-  
-@app.route('/handle_mata', methods=['POST']
+        payment = initial * (1 + interest / drate) ** (time / 12 * drate)
+        payment = round(payment, 2)
+
+        return render_template(
+    'goals.html',
+    payment=payment,
+    time=time,
+    initial=initial,
+    interest=interest * 100,
+    drate=drate
 )
+
+    except:
+        return "Invalid input"  
+
+
+@app.route('/handle_mata', methods=['POST'])
 def handle_mata():
+    try:
+        hprice = float(request.form.get('hprice', 0))
+        dpayment = float(request.form.get('dpayment', 0))
+        irate = float(request.form.get('rate', 0))
+        years = float(request.form.get('years', 0))
 
-    hprice = request.form.get('hprice', 0) or 0
-    dpayment = request.form.get('dpayment', 0) or 0
-    irate = request.form.get('rate', 0) or 0
-    years = request.form.get('years', 0) or 0   
-    hprice = float(hprice) if hprice is not None else 0
-    dpayment = float(dpayment) if dpayment is not None else 0
-    irate = float(irate) if irate is not None else 0
-    years = float(years) if years is not None else 0
-    p = int(hprice)-int(dpayment)
-    r = float(irate)/1200
-    r = round(r, 4)
-    n = float(years)*12
-    a = ((1+float(irate)/1200)**float(n))
-    pamount = float(p)*(float(irate)/1200*((1+float(irate)/1200)**float(n)))/(((1+float(irate)/1200)**float(n))-1)
-    pamount = round(float(pamount), 2)
-    return render_template('Mortgage.html', pamount=pamount, years=years)
+        p = hprice - dpayment
+        r = irate / 100 / 12   # monthly interest rate
+        n = years * 12         # total payments
 
+        if r == 0:
+            pamount = p / n
+        else:
+            pamount = p * (r * (1 + r)**n) / ((1 + r)**n - 1)
+
+        pamount = round(pamount, 2)
+
+        return render_template('Mortgage.html', pamount=pamount, years=years, hprice = hprice,
+            dpayment = dpayment, irate=irate)
+
+    except:
+        return "Invalid input"
+    
 @app.route('/handle_sata', methods=['POST']
 )
 def handle_sata():
@@ -96,7 +111,8 @@ def handle_sata():
     sint = float(sears)*float(sate)*int(ideposit)
     samount = float(sint)+int(ideposit)
     samount = round(samount, 2)
-    return render_template('Simple.html', samount=samount, sears=sears)
+    return render_template('Simple.html', samount=samount, sears=sears,
+        sate = sate*100, ideposit = ideposit)
 
 
 @app.route('/')

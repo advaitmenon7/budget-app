@@ -85,7 +85,7 @@
 }
 
 .gox {
-font-size: 12px;
+font-size: 16px;
   font-family: "Arial", Times, serif;
   text-align: left; /* Aligns text to the left */
 padding: 9px;
@@ -141,7 +141,7 @@ justify-content: space-around;
 
 
  width: 700px; /* Sets the width of the content area */
- height: 330px; /* Sets the height of the content area */
+ height: 360px; /* Sets the height of the content area */
  border-radius: 15px; /* Adds rounded corners */
  background-color: rgb(255, 255, 255); /* Adds a background color */
 }

@@ -12,13 +12,15 @@
 
 <!-- NAVIGATION (separate, NOT inside form) -->
 <div class="button-container">
-    <form action="{{ url_for('show_simple') }}" method="POST">
+    <form action="{{ url_for('show_budget') }}" method="POST">
+        <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">▶ Budget</button>
+    </form>
+<form action="{{ url_for('show_simple') }}" method="POST">
         <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Simple)</button>
     </form>
     <form action="{{ url_for('show_goals') }}" method="POST">
         <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Savings Calculator (Compound)</button>
     </form>
-
     <form action="{{ url_for('show_mortgage') }}" method="POST">
         <button style="border: none; outline: none; color:rgb(3, 9, 113);" type="submit">Mortgage Calculator</button>
     </form>
@@ -65,51 +67,55 @@
 
            </div>
         <div class="gox">
-             <input type="number" id="income" name="income" min="000" >
+             <input type="number" id="income" name="income" min="000" value="{{ income }}">
              <label>CAD</label>
 
 <br>
 <br>
 <br>
   
-            <input type="number" id="bills" name="bills" min="000">
+            <input type="number" id="bills" name="bills" min="000" value="{{ bills }}">
              <label>CAD</label>
 
             <br>
             <br>
 
-            <input type="number" id="rent" name="rent" min="000"  >
+            <input type="number" id="rent" name="rent" min="000" value="{{ rent }}" >
             <label>CAD</label>
             <br>
             <br>
 
-            <input type="number" id="food" name="food" min="000"     >
+            <input type="number" id="food" name="food" min="000"  value="{{ food }}"   >
             <label>CAD</label>
             <br>
             <br>
 
-            <input type="number" id="transport" name="transport" min="000"     >
+            <input type="number" id="transport" name="transport" min="000"   value="{{ transport }}"  >
             <label>CAD</label>
             <br>
             <br>
 
-            <input type="number" id="fun" name="fun" min="000"     > 
+            <input type="number" id="fun" name="fun" min="000"  value="{{ fun }}"   > 
             <label>CAD</label>
             <br>
             <br>
 
-            <input type="number" id="taxes" name="taxes" min="000"     >
+            <input type="number" id="taxes" name="taxes" min="000"  value="{{ taxes }}"   >
             <label>CAD</label>
             <br>
             <br>
-            <input type="number" id="savings" name="savings" min="000"     >
+            <input type="number" id="savings" name="savings" min="000"  value="{{ savings }}"   >
             <label>CAD</label>
 
+<br>
+<br>
+<br>
+<br>
 
 </div>
     </div>
 <div class="wox">
-    <div class="bluetangle">
+    <div class="bluetangle" style="margin-top: 50px;">
                 <button style="background-color: rgb(3, 19, 113); border-color: rgb(3, 19, 113); color: rgb(255, 255, 255); width: 200px; height: 60px; font-size: 20px;"type="submit">Submit</button>
 </div>
 </div>
