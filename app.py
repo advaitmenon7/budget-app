@@ -35,16 +35,17 @@ def show_simple():
 )
 def handle_data():
     # Retrieve data using the 'name' attribute from HTML
-    bills = int(request.form.get('bills', 0) or 0)
-    food = int(request.form.get('food', 0) or 0)
-    rent = int(request.form.get('rent', 0) or 0)
-    transport = int(request.form.get('transport', 0) or 0)
-    fun = int(request.form.get('fun', 0) or 0)
-    taxes = int(request.form.get('taxes', 0) or 0)
-    income = int(request.form.get('income', 0) or 0)
-    savings = int(request.form.get('savings', 0) or 0)
-    expenses = int(bills)+int(food) + int(rent) + int(transport) + int(fun) + int(taxes) + int(savings)
-    tsavings = int(income)-int(expenses)
+    bills = float(request.form.get('bills', 0) or 0)
+    food = float(request.form.get('food', 0) or 0)
+    rent = float(request.form.get('rent', 0) or 0)
+    transport = float(request.form.get('transport', 0) or 0)
+    fun = float(request.form.get('fun', 0) or 0)
+    taxes = float(request.form.get('taxes', 0) or 0)
+    income = float(request.form.get('income', 0) or 0)
+    savings = float(request.form.get('savings', 0) or 0)
+    expenses = float(bills)+float(food) + float(rent) + float(transport) + float(fun) + float(taxes) + float(savings)
+    expenses = round(expenses, 2)
+    tsavings = float(income)-float(expenses)
     return render_template('dashboard.html', income=income, expenses=expenses, tsavings=tsavings,
         bills = bills, food = food, rent = rent, transport = transport, fun = fun, taxes = taxes, savings = savings)
 
@@ -105,14 +106,13 @@ def handle_sata():
     sate = request.form.get('sate', 0) or 0
     sears = request.form.get('sears', 0) or 0
     sate = float(sate) if sate is not None else 1 
-    sate = float(sate)/100
     sears = float(sears) if sears  is not None else 1
     ideposit = float(ideposit) if ideposit  is not None else 500
-    sint = float(sears)*float(sate)*int(ideposit)
-    samount = float(sint)+int(ideposit)
+    sint = float(sears)*float(sate)*float(ideposit)/100
+    samount = float(sint)+float(ideposit)
     samount = round(samount, 2)
     return render_template('Simple.html', samount=samount, sears=sears,
-        sate = sate*100, ideposit = ideposit)
+        sate = sate, ideposit = ideposit)
 
 
 @app.route('/')
@@ -129,7 +129,7 @@ def index():
     interest = 0
     expenses = 0
     savings = 0
-    payment = int(soal)
+    payment = float(soal)
     # Pass the variable to the template using keyword arguments
     return render_template('index.html', income=income, expenses=expenses, savings=savings, payment=payment)
 
