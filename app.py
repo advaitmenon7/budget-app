@@ -128,8 +128,7 @@ def index():
     drate = 0
     interest = 0
     expenses = 0
-    savings = (int(income)-int(expenses))
-    den = int(interest)**int(time)*int(drate)
+    savings = 0
     payment = int(soal)
     # Pass the variable to the template using keyword arguments
     return render_template('index.html', income=income, expenses=expenses, savings=savings, payment=payment)
