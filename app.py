@@ -43,16 +43,16 @@ def handle_data():
     taxes = int(request.form.get('taxes', 0) or 0)
     income = int(request.form.get('income', 0) or 0)
     savings = int(request.form.get('savings', 0) or 0)
-    expenses = int(bills)+int(food) + int(rent) + int(transport) + int(fun) + int(taxes) + int(savings)
-    tsavings = int(income)-int(expenses)+int(savings)
+    expenses = int(bills)+int(food) + int(rent) + int(transport) + int(fun) + int(taxes)
+    tsavings = int(income)-int(expenses)
     return render_template('dashboard.html', income=income, expenses=expenses, tsavings=tsavings,
         bills = bills, food = food, rent = rent, transport = transport, fun = fun, taxes = taxes, savings = savings)
 
 @app.route('/handle_gata', methods=['POST'])
 def handle_gata():
     try:
-        time = int(request.form.get('time', 0)) / 12
-        drate = int(request.form.get('drate', 12))  # 12 or 4
+        time = float(request.form.get('time', 0)) * 12
+        drate = float(request.form.get('drate', 12))  # 12 or 4
         interest = float(request.form.get('interest', 0)) / 100
         initial = float(request.form.get('initial', 0))
 
@@ -62,7 +62,7 @@ def handle_gata():
         return render_template(
     'goals.html',
     payment=payment,
-    time=time,
+    time=time/12,
     initial=initial,
     interest=interest * 100,
     drate=drate
@@ -92,7 +92,7 @@ def handle_mata():
         pamount = round(pamount, 2)
 
         return render_template('Mortgage.html', pamount=pamount, years=years, hprice = hprice,
-            dpayment = dpayment, irate=irate)
+            dpayment = dpayment, rate=irate)
 
     except:
         return "Invalid input"
