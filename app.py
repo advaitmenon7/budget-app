@@ -43,7 +43,7 @@ def handle_data():
     taxes = int(request.form.get('taxes', 0) or 0)
     income = int(request.form.get('income', 0) or 0)
     savings = int(request.form.get('savings', 0) or 0)
-    expenses = int(bills)+int(food) + int(rent) + int(transport) + int(fun) + int(taxes) - int(savings)
+    expenses = int(bills)+int(food) + int(rent) + int(transport) + int(fun) + int(taxes) + int(savings)
     tsavings = int(income)-int(expenses)
     return render_template('dashboard.html', income=income, expenses=expenses, tsavings=tsavings,
         bills = bills, food = food, rent = rent, transport = transport, fun = fun, taxes = taxes, savings = savings)
