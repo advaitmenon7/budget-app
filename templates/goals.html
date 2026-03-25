@@ -53,7 +53,7 @@
             <label>Time for Saving:</label>
            </div>
         <div class="gox">
-            <input type="number" id="initial" name="initial" min="000" class="large-input" value="{{ initial }}">
+            <input type="number" id="initial" name="initial" min="0" step="0.01" class="large-input" value="{{ initial }}">
             <label>CAD</label>
             <br>
             <br>
@@ -64,11 +64,11 @@
     {% if drate == 4 %}checked{% endif %}> Quarterly
     <br>
             <br>
-            <input type="number" id="interest" name="interest" min="000" step="0.01" max="100" class="large-input" value="{{ interest }}">
+            <input type="number" id="interest" name="interest" min="0" step="0.01" step="0.01" max="100" class="large-input" value="{{ interest }}">
             <label>%</label>
             <br>
             <br>
-            <input type="number" id="time" name="time" min="000" class="large-input" value="{{ time }}">
+            <input type="number" id="time" name="time" min="0" step="0.01" class="large-input" value="{{ time }}">
              <label>years</label>
 
 
